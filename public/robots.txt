@@ -1,0 +1,10 @@
+# Robots.txt for Nagesh PG Website
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nageshpg.online/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 10
+
