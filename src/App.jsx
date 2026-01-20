@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import {
   Wifi,
   Waves,
@@ -170,7 +171,48 @@ const Navbar = ({ scrolled }) => {
 // Hero Section
 const Hero = () => {
   return (
-    <section className="hero" id="home">
+    <section className="hero" id="home" aria-label="Hero Section">
+      <Helmet>
+        <title>Nagesh PG Magarpatta - Premium Paying Guest Accommodation in Pune</title>
+        <meta name="description" content="Welcome to Nagesh PG - Your home away from home in Magarpatta, Pune. Premium PG for boys and girls with WiFi, AC, meals, laundry & all amenities. Starting ₹6,000/month." />
+        <meta name="keywords" content="Nagesh PG, PG in Magarpatta, paying guest Pune, boys PG, girls PG, accommodation Magarpatta, student PG, PG with food, WiFi PG Pune" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nageshpg.online" />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nageshpg.online" />
+        <meta property="og:title" content="Nagesh PG Magarpatta | Premium PG Accommodation in Pune" />
+        <meta property="og:description" content="Premium paying guest accommodation in Magarpatta, Pune. Safe, secure & comfortable living with WiFi, AC, meals & all amenities. Starting ₹6,000/month." />
+        <meta property="og:image" content="https://nageshpg.online/og-image.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://nageshpg.online" />
+        <meta name="twitter:title" content="Nagesh PG Magarpatta | Premium PG Accommodation in Pune" />
+        <meta name="twitter:description" content="Premium paying guest accommodation in Magarpatta, Pune. Safe, secure & comfortable living with WiFi, AC, meals & all amenities." />
+        <meta name="twitter:image" content="https://nageshpg.online/twitter-image.jpg" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Nagesh PG",
+            "url": "https://nageshpg.online",
+            "description": "Premium paying guest accommodation in Magarpatta, Pune for boys and girls",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://nageshpg.online/contact"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          })}
+        </script>
+      </Helmet>
+      
       <div className="hero-background">
         <div className="gradient-orb orb-1"></div>
         <div className="gradient-orb orb-2"></div>
@@ -251,7 +293,47 @@ const Hero = () => {
 // About Section
 const About = () => {
   return (
-    <section className="about" id="about">
+    <section className="about" id="about" aria-label="About Us">
+      <Helmet>
+        <title>About Nagesh PG - 5+ Years Premium PG Experience in Magarpatta Pune</title>
+        <meta name="description" content="Learn about Nagesh PG - Premium paying guest accommodation in Magarpatta, Pune. 5+ years experience, 500+ happy residents, separate accommodation for boys & girls with all amenities." />
+        <meta name="keywords" content="about Nagesh PG, PG experience Magarpatta, paying guest about us, student accommodation Pune, premium PG Pune" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nageshpg.online/#about" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Nagesh PG",
+              "description": "Premium paying guest accommodation in Magarpatta, Pune",
+              "foundingDate": "2019",
+              "founder": {
+                "@type": "Person",
+                "name": "Nagesh Chintham"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Dnyandeep Society, North Hadapsar, Magarpatta",
+                "addressLocality": "Pune",
+                "addressRegion": "Maharashtra",
+                "postalCode": "411028",
+                "addressCountry": "IN"
+              },
+              "areaServed": {
+                "@type": "Place",
+                "name": "Pune, Maharashtra, India"
+              },
+              "numberOfEmployees": "50+",
+              "awards": ["Best PG in Magarpatta 2023", "Excellence in Student Accommodation 2022"]
+            }
+          })}
+        </script>
+      </Helmet>
+      
       <motion.div
         className="section-container"
         initial="initial"
@@ -685,8 +767,72 @@ const Rooms = () => {
     setIsModalOpen(true);
   };
 
+  const currentPgType = activeTab === "boys" ? "Boys PG" : "Girls PG";
+  const pgTypeKeywords = activeTab === "boys" 
+    ? "boys PG in Magarpatta, boys paying guest Pune, male student accommodation"
+    : "girls PG in Magarpatta, girls paying guest Pune, female student accommodation";
+
   return (
-    <section className="rooms" id="rooms">
+    <section className="rooms" id="rooms" aria-label="PG Rooms">
+      <Helmet>
+        <title>{currentPgType} Magarpatta - {activeTab === "boys" ? "Boys" : "Girls"} Paying Guest Accommodation in Pune | Nagesh PG</title>
+        <meta name="description" content={`Best ${activeTab} PG in Magarpatta Pune. Affordable ${activeTab} paying guest with AC, WiFi, meals & all amenities. ${activeTab === "boys" ? "Boys" : "Girls"} PG starting ₹6,000/month. Book now!`} />
+        <meta name="keywords" content={`${pgTypeKeywords}, ${activeTab} PG rooms Magarpatta, ${activeTab} sharing PG Pune, affordable ${activeTab} accommodation, PG with food Magarpatta`} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={`https://nageshpg.online/#${activeTab}-pg`} />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://nageshpg.online/#${activeTab}-pg`} />
+        <meta property="og:title" content={`${currentPgType} Magarpatta | Best ${activeTab} PG Accommodation in Pune`} />
+        <meta property="og:description" content={`Premium ${activeTab} PG in Magarpatta with all amenities. Safe, secure & comfortable living starting ₹6,000/month.`} />
+        
+        {/* Structured Data - Product Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": rooms
+              .filter(room => room.type === activeTab)
+              .map((room, index) => ({
+                "@type": "Product",
+                "position": index + 1,
+                "name": `${room.sharing} Sharing ${activeTab === "boys" ? "Boys" : "Girls"} PG Room`,
+                "description": `${room.sharing} sharing PG room for ${activeTab} in Magarpatta, Pune with WiFi, AC, meals, laundry & all amenities`,
+                "brand": {
+                  "@type": "Brand",
+                  "name": "Nagesh PG"
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "price": room.price,
+                  "priceCurrency": "INR",
+                  "availability": "https://schema.org/InStock",
+                  "validFrom": new Date().toISOString(),
+                  "description": "Monthly rent including all amenities"
+                },
+                "additionalProperty": [
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Room Type",
+                    "value": `${room.sharing} Sharing`
+                  },
+                  {
+                    "@type": "PropertyValue", 
+                    "name": "PG Type",
+                    "value": activeTab === "boys" ? "Boys PG" : "Girls PG"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Location",
+                    "value": "Magarpatta, Pune"
+                  }
+                ]
+              }))
+          })}
+        </script>
+      </Helmet>
+      
       <motion.div
         className="section-container"
         initial="initial"
@@ -811,7 +957,37 @@ const Amenities = () => {
   ];
 
   return (
-    <section className="amenities" id="amenities">
+    <section className="amenities" id="amenities" aria-label="Amenities">
+      <Helmet>
+        <title>PG Amenities Magarpatta - All Inclusive Facilities at Nagesh PG Pune</title>
+        <meta name="description" content="Discover premium PG amenities at Nagesh PG Magarpatta: High-Speed WiFi, AC, Washing Machine, Home Cooked Meals, Daily Cleaning, Power Backup, Security & more. All-inclusive!" />
+        <meta name="keywords" content="PG amenities Magarpatta, paying guest amenities Pune, PG facilities, WiFi PG, AC PG, laundry service, PG security, furnished rooms Magarpatta" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nageshpg.online/#amenities" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": amenities.map((amenity, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "Thing",
+                "name": amenity.title,
+                "description": amenity.desc,
+                "additionalProperty": {
+                  "@type": "PropertyValue",
+                  "name": "Category",
+                  "value": "PG Amenity"
+                }
+              }
+            }))
+          })}
+        </script>
+      </Helmet>
+      
       <motion.div
         className="section-container"
         initial="initial"
@@ -927,7 +1103,48 @@ const Testimonials = () => {
       : testimonials.filter((t) => t.type === activeTab);
 
   return (
-    <section className="testimonials" id="testimonials">
+    <section className="testimonials" id="testimonials" aria-label="Testimonials">
+      <Helmet>
+        <title>PG Testimonials & Reviews - What Residents Say About Nagesh PG Magarpatta</title>
+        <meta name="description" content="Read genuine testimonials from 500+ happy residents at Nagesh PG. 4.8/5 average rating. Students & professionals share their PG experience in Magarpatta Pune." />
+        <meta name="keywords" content="PG testimonials, Nagesh PG reviews, student PG reviews Magarpatta, paying guest testimonials, PG experience Pune, Nagesh PG ratings" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nageshpg.online/#testimonials" />
+        
+        {/* Structured Data - Review Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ReviewPage",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Nagesh PG",
+              "url": "https://nageshpg.online"
+            },
+            "review": testimonials.map(t => ({
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": t.name
+              },
+              "datePublished": new Date().toISOString(),
+              "reviewBody": t.text,
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": t.rating,
+                "bestRating": "5",
+                "worstRating": "1"
+              },
+              "itemReviewed": {
+                "@type": "LodgingBusiness",
+                "name": "Nagesh PG",
+                "url": "https://nageshpg.online"
+              }
+            }))
+          })}
+        </script>
+      </Helmet>
+      
       <motion.div
         className="section-container"
         initial="initial"
@@ -1093,7 +1310,31 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="faq" id="faq">
+    <section className="faq" id="faq" aria-label="FAQ">
+      <Helmet>
+        <title>PG FAQ - Frequently Asked Questions About Nagesh PG Magarpatta Pune</title>
+        <meta name="description" content="Find answers to common questions about Nagesh PG: rent inclusion, booking process, PG rules, documents required, amenities, food, security deposit & more. Your complete PG guide!" />
+        <meta name="keywords" content="PG FAQ, paying guest questions, Nagesh PG FAQ, PG booking questions, rent FAQ, security deposit PG, PG rules Pune, PG documents required" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nageshpg.online/#faq" />
+        
+        {/* FAQ Schema - Enhanced with more Q&A */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqItems.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}
+        </script>
+      </Helmet>
+      
       <motion.div
         className="section-container"
         initial="initial"
@@ -1232,7 +1473,38 @@ const NearbyAmenities = () => {
   ];
 
   return (
-    <section className="nearby-amenities" id="nearby-amenities">
+    <section className="nearby-amenities" id="nearby-amenities" aria-label="Nearby Amenities">
+      <Helmet>
+        <title>Nearby Amenities Magarpatta - Hospitals, Schools, Shopping Near Nagesh PG Pune</title>
+        <meta name="description" content="Explore nearby amenities at Nagesh PG Magarpatta: Hospitals (Noble, LifeLine), Schools (ISB, Magarpatta College), Shopping (Amanora Mall), Transport & more. Everything within reach!" />
+        <meta name="keywords" content="nearby amenities Magarpatta, hospitals near PG, schools near Magarpatta, shopping malls Pune, transport connectivity Magarpatta, PG location advantages" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nageshpg.online/#nearby-amenities" />
+        
+        {/* Structured Data - Local Business Listings */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": nearbyPlaces.map((category, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "Place",
+                "name": category.category,
+                "description": `Various ${category.category.toLowerCase()} options nearby including ${category.places.slice(0, 2).map(p => p.name).join(", ")}`,
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Magarpatta",
+                  "addressRegion": "Pune",
+                  "addressCountry": "IN"
+                }
+              }
+            }))
+          })}
+        </script>
+      </Helmet>
+      
       <motion.div
         className="section-container"
         initial="initial"
@@ -1347,7 +1619,32 @@ const Gallery = () => {
   ];
 
   return (
-    <section className="gallery" id="gallery">
+    <section className="gallery" id="gallery" aria-label="Gallery">
+      <Helmet>
+        <title>Nagesh PG Gallery - Photos of Boys & Girls PG Rooms & Amenities Magarpatta Pune</title>
+        <meta name="description" content="View gallery photos of Nagesh PG Magarpatta: Common areas, bedrooms, kitchens, bathrooms, study rooms & terrace. See our premium PG facilities before booking!" />
+        <meta name="keywords" content="PG gallery, Nagesh PG photos, PG room images, boys PG photos, girls PG photos, PG facilities pictures, Magarpatta PG gallery" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nageshpg.online/#gallery" />
+        
+        {/* Structured Data - Image Gallery */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageGallery",
+            "name": "Nagesh PG Gallery",
+            "description": "Photo gallery showcasing Nagesh PG facilities including rooms, amenities, and common areas",
+            "url": "https://nageshpg.online/#gallery",
+            "image": images.map(img => ({
+              "@type": "ImageObject",
+              "name": img.title,
+              "description": `${img.title} at Nagesh PG Magarpatta`,
+              "contentUrl": `https://nageshpg.online/images/${img.title.toLowerCase().replace(" ", "-")}.jpg`
+            }))
+          })}
+        </script>
+      </Helmet>
+      
       <motion.div
         className="section-container"
         initial="initial"
@@ -1407,7 +1704,45 @@ const Location = () => {
   ];
 
   return (
-    <section className="location" id="location">
+    <section className="location" id="location" aria-label="Location">
+      <Helmet>
+        <title>Nagesh PG Location - Find Our Boys & Girls PG in Magarpatta Pune</title>
+        <meta name="description" content="Find Nagesh PG location in Magarpatta Pune. Boys PG at Dnyandeep Society & Girls PG near Noble Hospital. Easy access from Magarpatta bus stop, Hadapsar railway station." />
+        <meta name="keywords" content="Nagesh PG location, PG address Magarpatta, boys PG address Pune, girls PG location, how to reach Nagesh PG, Magarpatta address, PG directions Pune" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nageshpg.online/#location" />
+        
+        {/* Structured Data - Location/Address */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": locations.map((location, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "item": {
+                "@type": "LodgingBusiness",
+                "name": location.title,
+                "description": `Nagesh ${location.type === "boys" ? "Boys" : "Girls"} PG location in Magarpatta, Pune`,
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": location.address,
+                  "addressLocality": "Pune",
+                  "addressRegion": "Maharashtra",
+                  "postalCode": "411028",
+                  "addressCountry": "IN"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": "18.5196",
+                  "longitude": "73.9333"
+                }
+              }
+            }))
+          })}
+        </script>
+      </Helmet>
+      
       <motion.div
         className="section-container"
         initial="initial"
@@ -1523,7 +1858,49 @@ const Contact = () => {
   };
 
   return (
-    <section className="contact" id="contact">
+    <section className="contact" id="contact" aria-label="Contact">
+      <Helmet>
+        <title>Contact Nagesh PG - Book Your PG Room in Magarpatta Pune</title>
+        <meta name="description" content="Contact Nagesh PG to book your PG room in Magarpatta Pune. Call +91 96239 75463 or visit us at Dnyandeep Society, Magarpatta. Book your comfortable stay today!" />
+        <meta name="keywords" content="contact Nagesh PG, book PG room, PG booking Magarpatta, call PG Pune, visit Nagesh PG, PG contact number, PG inquiry Pune" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nageshpg.online/#contact" />
+        
+        {/* Structured Data - Contact Page */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Nagesh PG",
+              "url": "https://nageshpg.online",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-96239-75463",
+                "contactType": "customer service",
+                "availableLanguage": ["English", "Hindi", "Marathi"],
+                "hoursAvailable": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                  "opens": "00:00",
+                  "closes": "23:59"
+                }
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Dnyandeep Society, North Hadapsar, Magarpatta",
+                "addressLocality": "Pune",
+                "addressRegion": "Maharashtra",
+                "postalCode": "411028",
+                "addressCountry": "IN"
+              },
+              "email": "nageshchintham4@gmail.com"
+            }
+          })}
+        </script>
+      </Helmet>
+      
       <motion.div
         className="section-container"
         initial="initial"
@@ -1611,7 +1988,101 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="footer">
+    <footer className="footer" role="contentinfo" aria-label="Footer">
+      <Helmet>
+        <title>Nagesh PG Magarpatta Pune - Best Paying Guest Accommodation for Boys & Girls</title>
+        <meta name="description" content="Nagesh PG offers premium paying guest accommodation in Magarpatta, Pune. Safe & secure PG for boys and girls with WiFi, AC, meals, laundry & all amenities. Starting ₹6,000/month. Book now!" />
+        <meta name="keywords" content="Nagesh PG, PG Magarpatta, paying guest Pune, boys PG, girls PG, accommodation Magarpatta, student PG, PG with food, WiFi PG, AC PG, PG near ISB, PG near Magarpatta College" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <link rel="canonical" href="https://nageshpg.online" />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nageshpg.online" />
+        <meta property="og:title" content="Nagesh PG Magarpatta | Premium PG Accommodation in Pune" />
+        <meta property="og:description" content="Premium paying guest accommodation in Magarpatta, Pune. Safe, secure & comfortable living with WiFi, AC, meals & all amenities. Starting ₹6,000/month." />
+        <meta property="og:image" content="https://nageshpg.online/og-image.jpg" />
+        <meta property="og:site_name" content="Nagesh PG" />
+        <meta property="og:locale" content="en_IN" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@nageshpg" />
+        <meta name="twitter:url" content="https://nageshpg.online" />
+        <meta name="twitter:title" content="Nagesh PG Magarpatta | Premium PG Accommodation in Pune" />
+        <meta name="twitter:description" content="Premium paying guest accommodation in Magarpatta, Pune. Safe, secure & comfortable living with WiFi, AC, meals & all amenities." />
+        <meta name="twitter:image" content="https://nageshpg.online/twitter-image.jpg" />
+        
+        {/* Additional SEO Tags */}
+        <meta name="theme-color" content="#ff6b6b" />
+        <meta name="format-detection" content="telephone=yes" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="General" />
+        
+        {/* Geo Tags */}
+        <meta name="geo.region" content="IN-MH" />
+        <meta name="geo.placename" content="Magarpatta, Pune, Maharashtra, India" />
+        <meta name="geo.position" content="18.5196;73.9333" />
+        <meta name="ICBM" content="18.5196, 73.9333" />
+        
+        {/* Business Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Nagesh PG",
+            "description": "Premium paying guest accommodation in Magarpatta, Pune offering safe and comfortable PG for boys and girls with all amenities.",
+            "url": "https://nageshpg.online",
+            "telephone": "+91-96239-75463",
+            "email": "nageshchintham4@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Dnyandeep Society, North Hadapsar, Magarpatta",
+              "addressLocality": "Pune",
+              "addressRegion": "Maharashtra",
+              "postalCode": "411028",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "18.5196",
+              "longitude": "73.9333"
+            },
+            "openingHours": "Mo-Su 00:00-23:59",
+            "priceRange": "₹6000 - ₹8000",
+            "paymentAccepted": "Cash, UPI, Bank Transfer",
+            "currenciesAccepted": "INR",
+            "areaServed": {
+              "@type": "Place",
+              "name": "Pune, Maharashtra"
+            },
+            "sameAs": [
+              "https://www.facebook.com/nageshpg",
+              "https://www.instagram.com/nageshpg",
+              "https://twitter.com/nageshpg"
+            ],
+            "founder": {
+              "@type": "Person",
+              "name": "Nagesh Chintham"
+            },
+            "foundingDate": "2019",
+            "numberOfEmployees": "50+",
+            "awards": ["Best PG in Magarpatta 2023"]
+          })}
+        </script>
+        
+        {/* Sitemap Reference */}
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        
+        {/* Favicon Links */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </Helmet>
+      
       <motion.div
         className="footer-content"
         initial="initial"
