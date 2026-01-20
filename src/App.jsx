@@ -1562,124 +1562,6 @@ const Contact = () => {
               <span>opp. Noble Hospital, Hadapsar</span>
             </div>
           </div>
-
-          <motion.form
-            className="contact-form"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            onSubmit={handleSubmit}
-          >
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name *"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number *"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address (Optional)"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <select
-                name="pgType"
-                value={formData.pgType}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select PG Type *</option>
-                <option value="boys">Boys PG</option>
-                <option value="girls">Girls PG</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <select
-                name="roomType"
-                value={formData.roomType}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select Room Type *</option>
-                <option value="1">1 Sharing - ₹8,000/month</option>
-                <option value="2">2 Sharing - ₹7,000/month</option>
-                <option value="3">3 Sharing - ₹6,500/month</option>
-                <option value="4">4 Sharing - ₹6,000/month</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <textarea
-                name="message"
-                placeholder="Your Message (Optional)"
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-
-            {/* Success/Error Message */}
-            {submitStatus === "success" && (
-              <motion.div
-                className="form-message success"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                <CheckCircle size={20} />
-                <span>Thank you! We will contact you within 24 hours.</span>
-              </motion.div>
-            )}
-
-            {submitStatus === "error" && (
-              <motion.div
-                className="form-message error"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                <span>
-                  Failed to send message. Please call us directly at +91 96239
-                  75463
-                </span>
-              </motion.div>
-            )}
-
-            <motion.button
-              type="submit"
-              className="submit-btn"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                <>
-                  <span className="spinner"></span>
-                  Sending...
-                </>
-              ) : (
-                <>
-                  Send Message
-                  <ChevronRight size={20} />
-                </>
-              )}
-            </motion.button>
-          </motion.form>
         </motion.div>
       </motion.div>
     </section>
@@ -1726,12 +1608,6 @@ const Footer = () => {
     { day: "Monday - Sunday", time: "24/7 Available", icon: Clock },
     { day: "Office Hours", time: "9:00 AM - 8:00 PM", icon: Calendar },
     { day: "Phone Support", time: "Available 24/7", icon: Phone },
-  ];
-
-  const socialLinks = [
-    { name: "Facebook", icon: Facebook, url: "https://facebook.com" },
-    { name: "Instagram", icon: Instagram, url: "https://instagram.com" },
-    { name: "Twitter", icon: Twitter, url: "https://twitter.com" },
   ];
 
   return (

@@ -960,10 +960,13 @@ body {
 
 /* Contact Section */
 .contact-content {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 4rem;
-  align-items: start;
+  display: flex;
+  gap: 3rem;
+  align-items: stretch;
+}
+
+.contact-content > * {
+  flex: 1;
 }
 
 .contact-info {
@@ -2806,6 +2809,26 @@ body {
 
   .gallery-item {
     aspect-ratio: 1;
+  }
+
+  .contact-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-content > * {
+    flex: none;
+    width: 100%;
+  }
+
+  .contact-info {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contact-card {
+    flex: 1;
+    min-width: 280px;
   }
 
   .contact-form {
